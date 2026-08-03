@@ -103,7 +103,7 @@ export function ProductsSection() {
     const isLoadMoreVisible = !loading && products.length < total && !error;
 
     const content = loading ? (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 grid-cols-2 xl:grid-cols-4">
             {Array.from({ length: skeletonCount }).map((_, index) => (
                 <div key={index} className="animate-pulse rounded-[1.75rem] border border-white/10 bg-slate-900/50 p-4">
                     <div className="h-56 rounded-[1.25rem] bg-slate-800" />

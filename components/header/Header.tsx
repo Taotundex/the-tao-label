@@ -19,7 +19,7 @@ export function Header() {
             initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-xl"
+            className="fixed md:sticky w-full top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur-xl"
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
                 <div className="flex min-w-0 items-center gap-3">
