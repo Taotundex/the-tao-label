@@ -52,9 +52,9 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
                 </div>
                 <div className="space-y-1">
                     <h3 className="line-clamp-1 text-sm font-semibold text-white">{product.title}</h3>
-                    <p className="line-clamp-2 text-xs leading-5 text-slate-400">{product.description}</p>
+                    <p className="line-clamp-2 text-xs leading-5 text-slate-400 hidden md:block">{product.description}</p>
                 </div>
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="hidden md:flex flex-wrap items-center gap-2">
                     <div className="flex items-center gap-1 text-[0.78rem] text-amber-300">
                         <span className="font-semibold">{product.rating.toFixed(1)}</span>
                         <span>★</span>
@@ -64,10 +64,10 @@ export function ProductCard({ product, onViewDetails }: ProductCardProps) {
                         {product.available ? "In stock" : "Sold out"}
                     </div>
                 </div>
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
                     <div>
                         <p className="text-[0.7rem] text-slate-400">Price</p>
-                        <p className="text-sm font-semibold text-white">
+                        <p className="text-sm font-semibold text-white ">
                             ${product.price.toFixed(2)} <span className="text-xs text-slate-500 line-through">${product.originalPrice.toFixed(2)}</span>
                         </p>
                     </div>
