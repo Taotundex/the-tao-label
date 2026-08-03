@@ -126,7 +126,7 @@ export function ProductsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
+                className="grid gap-4 grid-cols-2 xl:grid-cols-4"
             >
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} onViewDetails={() => setSelectedProduct(product)} />
