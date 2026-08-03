@@ -2,6 +2,13 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { Product } from "@/types/product";
 
+interface ToastState {
+  message: string;
+  visible: boolean;
+  showToast: (message: string) => void;
+  hideToast: () => void;
+}
+
 export interface CartItem {
   product: Product;
   quantity: number;
@@ -19,11 +26,15 @@ interface CartState {
   clearCart: () => void;
 }
 
-export const useCartStore = create<CartState>()(
+export const useCartStore = create<CartState & ToastState>()(
   persist(
     (set) => ({
       items: [],
       cartOpen: false,
+      message: "",
+      visible: false,
+      showToast: (message) => set({ message, visible: true }),
+      hideToast: () => set({ visible: false, message: "" }),
       addToCart: (product, color, size) =>
         set((state) => {
           const existingIndex = state.items.findIndex(
@@ -31,17 +42,19 @@ export const useCartStore = create<CartState>()(
               item.product.id === product.id && item.color === color && item.size === size
           );
 
-          if (existingIndex >= 0) {
-            const items = [...state.items];
-            items[existingIndex].quantity += 1;
-            return { items };
-          }
+          const nextItems = existingIndex >= 0
+            ? state.items.map((item, index) =>
+                index === existingIndex ? { ...item, quantity: item.quantity + 1 } : item
+              )
+            : [
+                ...state.items,
+                { product, quantity: 1, color, size },
+              ];
 
           return {
-            items: [
-              ...state.items,
-              { product, quantity: 1, color, size },
-            ],
+            items: nextItems,
+            message: `${product.title} added to cart`,
+            visible: true,
           };
         }),
       removeFromCart: (productId) =>

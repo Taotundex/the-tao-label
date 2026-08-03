@@ -125,7 +125,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
                             <button
                                 onClick={() => addToCart(product as any, (product as any).colors?.[0] ?? "Onyx", (product as any).sizes?.[0] ?? "M")}
-                                className="inline-flex w-full h-14 items-center justify-center rounded-full rounded-t-none bg-white px-6 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+                                className="inline-flex w-full h-14 items-center justify-center rounded-none bg-white px-6 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
                             >
                                 Add to cart
                             </button>
@@ -203,7 +203,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                             <p className="text-sm uppercase tracking-[0.28em] text-slate-500">Customer reviews</p>
                             <p className="mt-2 text-lg font-semibold text-white">What buyers are saying</p>
                         </div>
-                        <div className="rounded-full bg-slate-950/70 px-4 py-2 text-sm text-slate-300">
+                        <div className="rounded-full bg-slate-950/70 px-4 py-2 text-sm text-slate-300 text-center">
                             {reviewCount} review{reviewCount === 1 ? "" : "s"}
                         </div>
                     </div>
@@ -213,7 +213,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                             No reviews available for this product yet.
                         </div>
                     ) : (
-                        <div className="mt-6 grid grid-cols-2 gap-4">
+                        <div className="mt-6 grid md:grid-cols-2 gap-2 md:gap-4">
                             {normalizedReviews.slice(0, 3).map((review, index) => (
                                 <article key={index} className="rounded-3xl border border-white/10 bg-slate-950/80 p-5 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.8)]">
                                     <div className="flex items-start justify-between gap-4">

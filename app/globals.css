@@ -68,6 +68,6 @@ svg {
 }
 
 
-.overflow-scroll::--webkit-scrollbar {
+.overflow-y-scroll::-webkit-scrollbar {
   display: none;
 }

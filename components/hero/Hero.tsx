@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function Hero() {
     return (
-        <section className="relative overflow-hidden bg-slate-950/95 pb-20 pt-20 sm:pb-24">
+        <section className="relative overflow-hidden bg-slate-950/95 pb-20 pt-36 sm:pb-24">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_35%),linear-gradient(180deg,_rgba(15,23,42,0.88),_rgba(15,23,42,0.98))]" />
             <div className="relative mx-auto flex max-w-7xl flex-col gap-14 px-6 lg:px-8">
                 <div className="grid gap-12 lg:grid-cols-[0.9fr_0.8fr] lg:items-end">
